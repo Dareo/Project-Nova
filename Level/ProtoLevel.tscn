@@ -68,4 +68,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.91355, -3)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.91355, -7)
 
 [node name="Root Scene2" parent="." instance=ExtResource("3_oem5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.65553, -3)
+transform = Transform3D(1, 0, 0, 0, 0.84802, 0.529964, 0, -0.529964, 0.84802, 0, 4.16048, -3)
