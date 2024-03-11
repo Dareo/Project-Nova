@@ -13,7 +13,9 @@ MouseSensitivity = 0.0033
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61879, 0)
 
-[node name="Root Scene" parent="Camera3D" instance=ExtResource("2_nrj2d")]
+[node name="WeaponManager" type="Node3D" parent="Camera3D"]
+
+[node name="Gern" parent="Camera3D/WeaponManager" instance=ExtResource("2_nrj2d")]
 transform = Transform3D(-3.14722e-08, 0, 0.72, 0, 0.72, 0, -0.72, 0, -3.14722e-08, 0.704908, -0.356261, -1.14308)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
