@@ -8,7 +8,7 @@ extends CharacterBody3D
 
 @export_group("Camera")
 @export var MainCamera : Camera3D
-@export var MouseSensitivity : float = 0.001
+@export_range(0.001, 0.005, 0.0001) var MouseSensitivity : float = 0.001
 var CameraRotation = Vector2(0,0)
 
 
