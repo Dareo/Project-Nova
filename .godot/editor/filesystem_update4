@@ -1,1 +1,5 @@
+res://Scripts/Player/Player.gd
+res://Prefabs/Player/player.tscn
 res://Level/ProtoLevel.tscn
+res://Prefabs/Gurn/Gurn.tscn
+res://Prefabs/hex/root_scene.tscn

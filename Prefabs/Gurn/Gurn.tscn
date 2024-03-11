@@ -1,0 +1,25 @@
+[gd_scene load_steps=8 format=3 uid="uid://di421anh1emgw"]
+
+[ext_resource type="PackedScene" uid="uid://djknygh0wrnrr" path="res://Models/Gun1.fbx" id="1_25mvw"]
+[ext_resource type="Texture2D" uid="uid://cvibxh11bfva0" path="res://Models/GunTextures/Gun1_DefaultMaterial_BaseColor.png" id="2_cqo8m"]
+[ext_resource type="Texture2D" uid="uid://bpjvgmp4fkj1e" path="res://Models/GunTextures/Gun1_DefaultMaterial_Height.png" id="3_w54yu"]
+[ext_resource type="Texture2D" uid="uid://bukghrvshd185" path="res://Models/GunTextures/Gun1_DefaultMaterial_Metallic.png" id="4_6t6oi"]
+[ext_resource type="Texture2D" uid="uid://c3ongj5bkhf2m" path="res://Models/GunTextures/Gun1_DefaultMaterial_Normal.png" id="5_a7cy6"]
+[ext_resource type="Texture2D" uid="uid://px8hn4dj4050" path="res://Models/GunTextures/Gun1_DefaultMaterial_Roughness.png" id="6_2f87w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xvr8"]
+albedo_texture = ExtResource("2_cqo8m")
+metallic = 0.67
+metallic_specular = 0.41
+metallic_texture = ExtResource("4_6t6oi")
+roughness = 0.25
+roughness_texture = ExtResource("6_2f87w")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("5_a7cy6")
+heightmap_texture = ExtResource("3_w54yu")
+
+[node name="Root Scene" instance=ExtResource("1_25mvw")]
+
+[node name="Cube_001" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_3xvr8")
