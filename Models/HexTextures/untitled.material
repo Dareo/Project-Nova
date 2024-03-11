@@ -1,0 +1,12 @@
+{
+    "materialType": "@gemroot:Atom_Feature_Common@/Assets/Materials/Types/StandardPBR.materialtype",
+    "materialTypeVersion": 5,
+    "propertyValues": {
+        "baseColor.textureMap": "hexa_Material_BaseColor.png",
+        "metallic.textureMap": "hexa_Material_Metallic.png",
+        "normal.textureMap": "hexa_Material_Normal.png",
+        "parallax.textureMap": "hexa_Material_Height.png",
+        "parallax.textureMapUv": "Unwrapped",
+        "roughness.textureMap": "hexa_Material_Roughness.png"
+    }
+}
