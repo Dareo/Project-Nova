@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://brhkcjo0mrxc0"
+path="res://.godot/imported/cubea.obj-a53e5dacd8b3e6d63924a4aaea5bade1.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cubea.obj-a53e5dacd8b3e6d63924a4aaea5bade1.mesh"]
+
+source_file="res://Models/cubea.obj"
+dest_files=["res://.godot/imported/cubea.obj-a53e5dacd8b3e6d63924a4aaea5bade1.mesh", "res://.godot/imported/cubea.obj-a53e5dacd8b3e6d63924a4aaea5bade1.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

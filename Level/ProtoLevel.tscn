@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxbwlonabhcu6"]
+
+[ext_resource type="ArrayMesh" uid="uid://brhkcjo0mrxc0" path="res://Models/cubea.obj" id="1_iywfy"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Cubea" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.149591, -1.06394, -0.268744)
+mesh = ExtResource("1_iywfy")
