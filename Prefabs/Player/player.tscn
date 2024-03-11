@@ -1,14 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvbq82tk40q82"]
+[gd_scene load_steps=4 format=3 uid="uid://cvbq82tk40q82"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_6ysji"]
+[ext_resource type="PackedScene" uid="uid://djknygh0wrnrr" path="res://Models/Gun1.fbx" id="2_nrj2d"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3tu8n"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("MainCamera")]
 script = ExtResource("1_6ysji")
+MainCamera = NodePath("Camera3D")
+MouseSensitivity = 0.003
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61879, 0)
+
+[node name="Root Scene" parent="Camera3D" instance=ExtResource("2_nrj2d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.704908, -0.356261, -1.14308)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
