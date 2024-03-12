@@ -2,8 +2,8 @@ ea4bc82a6ad023ab7ee23ee620429895
 ::res://::1710181553
 icon.svg::CompressedTexture2D::692126080853072332::1710171665::1710171687::1::::<><>::
 README.md::TextFile::-1::1710171495::0::1::::<><>::
-::res://Level/::1710183828
-ProtoLevel.tscn::PackedScene::6390605321799796695::1710183828::0::1::::<><>::uid://brhkcjo0mrxc0::::res://Models/cubea.obj<>uid://ctsvvev3k2d3::::res://Models/Grid/Dark/texture_03.png<>uid://cvbq82tk40q82::::res://Prefabs/Player/player.tscn<>uid://btggjsrdnhqqo::::res://Prefabs/hex/root_scene.tscn
+::res://Level/::1710184138
+ProtoLevel.tscn::PackedScene::6390605321799796695::1710184138::0::1::::<><>::uid://brhkcjo0mrxc0::::res://Models/cubea.obj<>uid://ctsvvev3k2d3::::res://Models/Grid/Dark/texture_03.png<>uid://cvbq82tk40q82::::res://Prefabs/Player/player.tscn<>uid://btggjsrdnhqqo::::res://Prefabs/hex/root_scene.tscn
 ::res://Models/::1710183826
 Button.fbx::PackedScene::3273234001069858024::1710172839::1710172845::1::::<><>::
 cubea.obj::Mesh::3594692906823574049::1710172839::1710172844::1::::<><>::
@@ -40,11 +40,11 @@ texture_13.png::CompressedTexture2D::2332170879689483855::1710180835::1710180841
 ::res://Models/Grid/Light/::1710180841
 texture_01.png::CompressedTexture2D::5920183440801841798::1710180835::1710180841::1::::<><>::
 texture_02.png::CompressedTexture2D::216531491280869290::1710180835::1710180841::1::::<><>::
-texture_03.png::CompressedTexture2D::6479130264101400240::1710180836::1710180841::1::::<><>::
+texture_03.png::CompressedTexture2D::6479130264101400240::1710180836::1710184194::1::::<><>::
 texture_04.png::CompressedTexture2D::3842079940604130189::1710180836::1710180841::1::::<><>::
 texture_05.png::CompressedTexture2D::2420721326115755482::1710180836::1710180841::1::::<><>::
 texture_06.png::CompressedTexture2D::8372611431365738268::1710180836::1710180841::1::::<><>::
-texture_07.png::CompressedTexture2D::950673350664703517::1710180836::1710180841::1::::<><>::
+texture_07.png::CompressedTexture2D::950673350664703517::1710180836::1710184267::1::::<><>::
 texture_08.png::CompressedTexture2D::7489286296174987268::1710180836::1710180841::1::::<><>::
 texture_09.png::CompressedTexture2D::6535564820925684513::1710180836::1710180841::1::::<><>::
 texture_10.png::CompressedTexture2D::1052558993975158810::1710180836::1710180841::1::::<><>::
@@ -65,7 +65,7 @@ texture_10.png::CompressedTexture2D::8999425052058675513::1710180836::1710180841
 texture_11.png::CompressedTexture2D::6064177058100906427::1710180836::1710180841::1::::<><>::
 texture_12.png::CompressedTexture2D::2453463974257017204::1710180836::1710180841::1::::<><>::
 texture_13.png::CompressedTexture2D::4077186525053524414::1710180836::1710180841::1::::<><>::
-::res://Models/Grid/Purple/::1710180841
+::res://Models/Grid/Purple/::1710183998
 texture_01.png::CompressedTexture2D::5020491812495713733::1710180836::1710183998::1::::<><>::
 texture_02.png::CompressedTexture2D::6874730007753353616::1710180836::1710180841::1::::<><>::
 texture_03.png::CompressedTexture2D::7383275634744863241::1710180836::1710180841::1::::<><>::
@@ -113,12 +113,12 @@ HexModel.obj::Mesh::1944075039012110002::1710179182::1710179193::1::::<><>::
 PBR - Metallic Roughness.json::JSON::-1::1710179182::0::1::::<><>::
 untitled.material::::-1::1710179182::0::1::::<><>::
 ::res://Prefabs/::1710179428
-::res://Prefabs/Gurn/::1710183354
-Gurn.tscn::PackedScene::7782325564932938994::1710183354::0::1::::<><>::uid://djknygh0wrnrr::::res://Models/Gun1.fbx<>uid://cvibxh11bfva0::::res://Models/GunTextures/Gun1_DefaultMaterial_BaseColor.png<>uid://bpjvgmp4fkj1e::::res://Models/GunTextures/Gun1_DefaultMaterial_Height.png<>uid://bukghrvshd185::::res://Models/GunTextures/Gun1_DefaultMaterial_Metallic.png<>uid://c3ongj5bkhf2m::::res://Models/GunTextures/Gun1_DefaultMaterial_Normal.png<>uid://px8hn4dj4050::::res://Models/GunTextures/Gun1_DefaultMaterial_Roughness.png
-::res://Prefabs/hex/::1710183272
-root_scene.tscn::PackedScene::3732776325277768342::1710183272::0::1::::<><>::uid://datuw35u76osu::::res://Models/HexTextures/hexa_Material_BaseColor.png<>uid://bedljggfl8535::::res://Models/HexTextures/hexa_Material_Height.png<>uid://b7iku6d2h6a2d::::res://Models/HexTextures/hexa_Material_Metallic.png<>uid://ccqv6w73p3k5s::::res://Models/HexTextures/hexa_Material_Normal.png<>uid://hhany4ypejjq::::res://Models/HexTextures/hexa_Material_Roughness.png
-::res://Prefabs/Player/::1710183272
-player.tscn::PackedScene::6249903312597914965::1710183272::0::1::::<><>::res://Scripts/Player/Player.gd<>uid://di421anh1emgw::::res://Prefabs/Gurn/Gurn.tscn
+::res://Prefabs/Gurn/::1710184138
+Gurn.tscn::PackedScene::7782325564932938994::1710184138::0::1::::<><>::uid://djknygh0wrnrr::::res://Models/Gun1.fbx<>uid://cvibxh11bfva0::::res://Models/GunTextures/Gun1_DefaultMaterial_BaseColor.png<>uid://bpjvgmp4fkj1e::::res://Models/GunTextures/Gun1_DefaultMaterial_Height.png<>uid://bukghrvshd185::::res://Models/GunTextures/Gun1_DefaultMaterial_Metallic.png<>uid://c3ongj5bkhf2m::::res://Models/GunTextures/Gun1_DefaultMaterial_Normal.png<>uid://px8hn4dj4050::::res://Models/GunTextures/Gun1_DefaultMaterial_Roughness.png
+::res://Prefabs/hex/::1710184138
+root_scene.tscn::PackedScene::3732776325277768342::1710184138::0::1::::<><>::uid://datuw35u76osu::::res://Models/HexTextures/hexa_Material_BaseColor.png<>uid://bedljggfl8535::::res://Models/HexTextures/hexa_Material_Height.png<>uid://b7iku6d2h6a2d::::res://Models/HexTextures/hexa_Material_Metallic.png<>uid://ccqv6w73p3k5s::::res://Models/HexTextures/hexa_Material_Normal.png<>uid://hhany4ypejjq::::res://Models/HexTextures/hexa_Material_Roughness.png
+::res://Prefabs/Player/::1710184137
+player.tscn::PackedScene::6249903312597914965::1710184137::0::1::::<><>::res://Scripts/Player/Player.gd<>uid://di421anh1emgw::::res://Prefabs/Gurn/Gurn.tscn
 ::res://Scripts/::1710173228
 ::res://Scripts/Player/::1710176041
 Player.gd::GDScript::-1::1710176041::0::1::::<>CharacterBody3D<>::
