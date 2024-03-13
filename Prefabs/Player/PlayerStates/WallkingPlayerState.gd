@@ -14,6 +14,10 @@ func enter() -> void:
 
 func update(delta : float) -> void:
 	set_animation_speed(Player.velocity.length())
+
+	if Input.is_action_just_pressed('Jump'):
+		Transition.emit("JumpingPlayerState")
+
 	if Input.is_action_just_pressed("Sprint") and Player.is_on_floor():
 		Transition.emit("SprintingPlayerState")
 

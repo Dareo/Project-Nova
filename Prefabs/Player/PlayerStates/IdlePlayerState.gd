@@ -11,6 +11,9 @@ func enter() -> void:
 	Animations.pause()
 
 func update(delta : float) -> void:
+	if Input.is_action_just_pressed('Jump'):
+		Transition.emit("JumpingPlayerState")
+
 	if Input.is_action_just_pressed('Crouch') and Player.is_on_floor():
 		Transition.emit("CrouchingPlayerState")
 

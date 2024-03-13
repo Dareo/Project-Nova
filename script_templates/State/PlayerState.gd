@@ -1,33 +1,27 @@
 extends State
-class_name SprintingPlayerState
 
 @export var Player : PlayerCharacter
 @export var Animations : AnimationPlayer
-@export var SprintingSpeed : float = 7.0
+@export var Speed : float = 7.0
 @export var AccelerationSpeed : float = 0.1
 @export var DeaccelerationSpeed : float = 0.25
 @export var TopAnimationSpeed : float = 1.6
 
 func enter() -> void:
-	Animations.play("Sprinting", 0.5, 1.0)
+	pass
 
 func update(delta : float) -> void:
-	set_animation_speed(Player.velocity.length())
-	if Input.is_action_just_pressed('Jump'):
-		Transition.emit("JumpingPlayerState")
+	pass
 
-
-	if Input.is_action_just_released("Sprint"):
-		Transition.emit("WalkingPlayerState")
-
+# updates the player movement and gravity each physics process tick
 func physics_update(delta: float) -> void:
 	Player.UpdateGravity(delta)
-	Player.UpdateInput(SprintingSpeed, AccelerationSpeed, DeaccelerationSpeed)
+	Player.UpdateInput(Speed, AccelerationSpeed, DeaccelerationSpeed)
 	Player.UpdateVelocity()
 
-
+## sets the animation speed
 func set_animation_speed(speed : float) -> void:
-	var alpha = remap(speed, 0.0, SprintingSpeed, 0.0, 1.0)
+	var alpha = remap(speed, 0.0, Speed, 0.0, 1.0)
 	Animations.speed_scale = lerp(0.0, TopAnimationSpeed, alpha)
 
 func exit() -> void:

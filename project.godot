@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Debug="*res://Scripts/Globals/Debug.gd"
 
+[display]
+
+window/vsync/vsync_mode=2
+
 [filesystem]
 
 import/fbx/enabled=false
@@ -73,6 +77,10 @@ Sprint={
 3d_physics/layer_3="Enemies"
 3d_physics/layer_4="Projectiles"
 3d_physics/layer_5="Items"
+
+[physics]
+
+3d/default_gravity=19.6
 
 [rendering]
 

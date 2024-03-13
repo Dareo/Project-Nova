@@ -3,13 +3,6 @@ class_name PlayerCharacter
 
 @export_category("First Person Controller")
 
-@export_group("Movement")
-@export var JUMP_VELOCITY : float = 4.5
-
-
-@export_group("Sprinting")
-@export var SprintSpeed : float = 7.0
-
 
 @export_group("Camera")
 @export var MainCamera : Camera3D
@@ -51,15 +44,6 @@ func CameraLook(Movement : Vector2):
 
 	rotate_object_local(Vector3(0,1,0), -CameraRotation.x) # first rotate y
 	MainCamera.rotate_object_local(Vector3(1,0,0), -CameraRotation.y) # then rotate x
-
-
-
-func _physics_process(delta: float) -> void:
-
-
-	# Handle jump.
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
 
 
 
