@@ -1,4 +1,8 @@
-res://Models/hdri
+res://Prefabs/Player/PlayerStates
+res://Scripts/StateMachine
+res://Scripts/Globals
+res://Scripts/UI/Debug
+res://Scripts/UI/Reticle
 res://Prefabs/hex
 res://Prefabs/Gurn
 res://Prefabs/Player

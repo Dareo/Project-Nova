@@ -3,3 +3,13 @@ res://Prefabs/Player/player.tscn
 res://Level/ProtoLevel.tscn
 res://Prefabs/Gurn/Gurn.tscn
 res://Prefabs/hex/root_scene.tscn
+res://Scripts/UI/Reticle/Reticle.gd
+res://Scripts/UI/Debug/Debug.gd
+res://Scripts/Globals/Debug.gd
+res://Scripts/StateMachine/State/State.gd
+res://Scripts/StateMachine/StateMachine.gd
+res://Prefabs/Player/PlayerStates/IdlePlayerState.gd
+res://Prefabs/Player/PlayerStates/WallkingPlayerState.gd
+res://Prefabs/Player/PlayerStates/SprintingPlayerState.gd
+res://Prefabs/Player/PlayerStates/CrouchingPlayerState.gd
+res://Prefabs/Player/PlayerStates/SlidingPlayerState.gd

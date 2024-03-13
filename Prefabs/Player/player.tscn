@@ -1,23 +1,351 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvbq82tk40q82"]
+[gd_scene load_steps=19 format=3 uid="uid://cvbq82tk40q82"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_6ysji"]
-[ext_resource type="PackedScene" uid="uid://di421anh1emgw" path="res://Prefabs/Gurn/Gurn.tscn" id="2_4q4ok"]
+[ext_resource type="Script" path="res://Scripts/UI/Reticle/Reticle.gd" id="2_l723f"]
+[ext_resource type="Script" path="res://Scripts/UI/Debug/Debug.gd" id="3_oba0h"]
+[ext_resource type="Script" path="res://Scripts/StateMachine/StateMachine.gd" id="4_2i17i"]
+[ext_resource type="Script" path="res://Prefabs/Player/PlayerStates/IdlePlayerState.gd" id="5_c1esp"]
+[ext_resource type="Script" path="res://Prefabs/Player/PlayerStates/WallkingPlayerState.gd" id="6_20r5c"]
+[ext_resource type="Script" path="res://Prefabs/Player/PlayerStates/SprintingPlayerState.gd" id="7_t42q4"]
+[ext_resource type="Script" path="res://Prefabs/Player/PlayerStates/CrouchingPlayerState.gd" id="8_5yem6"]
+[ext_resource type="Script" path="res://Prefabs/Player/PlayerStates/SlidingPlayerState.gd" id="9_oqnpp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3tu8n"]
 
+[sub_resource type="Animation" id="Animation_yqcyd"]
+resource_name = "Crouch"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBox:shape:height")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.0, 1.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBox:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0), Vector3(0, 0.75, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.61879, 0), Vector3(0, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xc4e2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBox:shape:height")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBox:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.61879, 0)]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.61879, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera:position:z")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera:position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_rjngb"]
+resource_name = "Walking"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.0150502, -0.25, 0, 0.25, 0, 0.000378969, -0.25, 0, 0.25, 0, -0.0136254, -0.25, 0, 0.25, 0, 0.000378969, -0.25, 0, 0.25, 0, 0.0150502, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1.61879, -0.25, 0, 0.2, 0.00962746, 1.65305, -0.25, 0, 0.25, 0, 1.61879, -0.2, 0.00996959, 0.2, 0.00962746, 1.65305, -0.25, 0, 0.25, 0, 1.61879, -0.2, 0.00996959, 0.2, 0.00962746),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_0gb35"]
+resource_name = "Sprinting"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-0.00106458, -0.25, 0, 0.25, 0, 0.111629, -0.25, 0, 0.25, 0, -0.10996, -0.25, 0, 0.25, 0, 0.000201634, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4, 0.9, 1.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1.61079, -0.25, 0, 0.3, 0.00034225, 1.65784, -0.25, 0, 0.25, 0, 1.61028, -0.5, 0.000684381, 0.2, 0.00034225, 1.65784, -0.25, 0, 0.25, 0, 1.61062, -0.3, -0.0188216, 0.2, 0.00962746),
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7gki8"]
+_data = {
+"Crouch": SubResource("Animation_yqcyd"),
+"RESET": SubResource("Animation_xc4e2"),
+"Sprinting": SubResource("Animation_0gb35"),
+"Walking": SubResource("Animation_rjngb")
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_x6lkv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pjeuv"]
+bg_color = Color(0.0666667, 0.0666667, 0.0666667, 0.909804)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="Theme" id="Theme_104vu"]
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_pjeuv")
+
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("MainCamera")]
+collision_layer = 2
 script = ExtResource("1_6ysji")
-MainCamera = NodePath("Camera3D")
+MainCamera = NodePath("Camera")
 MouseSensitivity = 0.0033
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61879, 0)
 
-[node name="WeaponManager" type="Node3D" parent="Camera3D"]
+[node name="WeaponManager" type="Node3D" parent="Camera"]
 
-[node name="Root Scene" parent="Camera3D/WeaponManager" instance=ExtResource("2_4q4ok")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.954687, -0.573995, -1.01699)
+[node name="ReflectionProbe" type="ReflectionProbe" parent="Camera"]
+update_mode = 1
+box_projection = true
+enable_shadows = true
+ambient_mode = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="HitBox" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_3tu8n")
+
+[node name="Animations" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7gki8")
+}
+
+[node name="HeadBangDetection" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("SphereShape3D_x6lkv")
+target_position = Vector3(0, 0.5, 0)
+debug_shape_custom_color = Color(0, 0.803922, 0, 1)
+
+[node name="UserInterface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Reticle" type="CenterContainer" parent="UserInterface" node_paths=PackedStringArray("ReticleLines", "PlayerController")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_l723f")
+ReticleLines = [NodePath("Top"), NodePath("Right"), NodePath("Bottom"), NodePath("Left")]
+PlayerController = NodePath("../..")
+
+[node name="Top" type="Line2D" parent="UserInterface/Reticle"]
+points = PackedVector2Array(0, -5, 0, -15)
+width = 2.0
+
+[node name="Right" type="Line2D" parent="UserInterface/Reticle"]
+points = PackedVector2Array(5, 0, 15, 0)
+width = 2.0
+
+[node name="Bottom" type="Line2D" parent="UserInterface/Reticle"]
+points = PackedVector2Array(0, 5, 0, 15)
+width = 2.0
+
+[node name="Left" type="Line2D" parent="UserInterface/Reticle"]
+points = PackedVector2Array(-5, 0, -15, 0)
+width = 2.0
+
+[node name="DebugPanel" type="PanelContainer" parent="UserInterface"]
+visible = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 210.0
+offset_bottom = 50.0
+theme = SubResource("Theme_104vu")
+script = ExtResource("3_oba0h")
+
+[node name="MarginContainer" type="MarginContainer" parent="UserInterface/DebugPanel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/DebugPanel/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("CurrentState")]
+script = ExtResource("4_2i17i")
+CurrentState = NodePath("IdlePlayerState")
+
+[node name="IdlePlayerState" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("Player", "Animations")]
+script = ExtResource("5_c1esp")
+Player = NodePath("../..")
+Animations = NodePath("../../Animations")
+
+[node name="WalkingPlayerState" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("Player", "Animations")]
+script = ExtResource("6_20r5c")
+Player = NodePath("../..")
+Animations = NodePath("../../Animations")
+
+[node name="SprintingPlayerState" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("Player", "Animations")]
+script = ExtResource("7_t42q4")
+Player = NodePath("../..")
+Animations = NodePath("../../Animations")
+
+[node name="CrouchingPlayerState" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("Player", "Animations", "HeadBangDetection")]
+script = ExtResource("8_5yem6")
+Player = NodePath("../..")
+Animations = NodePath("../../Animations")
+HeadBangDetection = NodePath("../../HeadBangDetection")
+
+[node name="SlidingPlayerState" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("Player", "Animations", "HeadBangDetection")]
+script = ExtResource("9_oqnpp")
+Player = NodePath("../..")
+Animations = NodePath("../../Animations")
+HeadBangDetection = NodePath("../../HeadBangDetection")
