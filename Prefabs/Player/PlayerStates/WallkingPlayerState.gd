@@ -9,19 +9,22 @@ class_name WalkingPlayerState
 @export var DeaccelerationSpeed : float = 0.25
 @export var TopAnimationSpeed : float = 2.2
 
+var DefaultFov : float
+
 func enter() -> void:
+
 	Animations.play("Walking", -1.0, 1.0)
 
 func update(delta : float) -> void:
 	set_animation_speed(Player.velocity.length())
 
-	if Input.is_action_just_pressed('Jump'):
+	if Input.is_action_pressed('Jump'):
 		Transition.emit("JumpingPlayerState")
 
-	if Input.is_action_just_pressed("Sprint") and Player.is_on_floor():
+	if Input.is_action_pressed("Sprint") and Player.is_on_floor():
 		Transition.emit("SprintingPlayerState")
 
-	if Input.is_action_just_pressed('Crouch') and Player.is_on_floor():
+	if Input.is_action_pressed('Crouch') and Player.is_on_floor():
 		Transition.emit("CrouchingPlayerState")
 
 	if Player.velocity.length() == 0.0 and Player.is_on_floor():

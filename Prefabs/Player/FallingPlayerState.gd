@@ -7,13 +7,21 @@ extends State
 @export var DeaccelerationSpeed : float = 0.25
 @export var TopAnimationSpeed : float = 1.6
 
+@export var ExtraJumps : int = 1
+var JumpCount : int
+
 func enter() -> void:
 	pass
 
 func update(delta : float) -> void:
 	# Player is still in Air
 	if !Player.is_on_floor():
+		if Input.is_action_just_pressed("Jump") and JumpCount > 0:
+			JumpCount -= 1
+			Transition.emit("JumpingPlayerState")
+
 		return
+	JumpCount = ExtraJumps
 	# Player is on the ground
 	if Player.velocity.length() == 0:
 		Transition.emit("IdlePlayerState")
@@ -26,7 +34,6 @@ func update(delta : float) -> void:
 	if Input.is_action_pressed('Crouch'):
 		Transition.emit("CrouchingPlayerState")
 		return
-
 	Transition.emit("WalkingPlayerState")
 
 

@@ -8,11 +8,19 @@ class_name SprintingPlayerState
 @export var DeaccelerationSpeed : float = 0.25
 @export var TopAnimationSpeed : float = 1.6
 
+
 func enter() -> void:
+
 	Animations.play("Sprinting", 0.5, 1.0)
 
 func update(delta : float) -> void:
 	set_animation_speed(Player.velocity.length())
+	if !Player.is_on_floor():
+		Transition.emit("FallingPlayerState")
+
+	if Input.is_action_just_pressed('Crouch'):
+		Transition.emit("SlidingPlayerState")
+
 	if Input.is_action_just_pressed('Jump'):
 		Transition.emit("JumpingPlayerState")
 

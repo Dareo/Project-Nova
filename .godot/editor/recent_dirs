@@ -1,3 +1,6 @@
+res://Prefabs/Player/Weapon
+res://Prefabs/Player/WeaponManager
+res://Prefabs/HandGun
 res://Prefabs/Player/PlayerStates
 res://Scripts/StateMachine
 res://Scripts/Globals

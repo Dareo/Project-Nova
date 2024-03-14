@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://djui2gdpp1bre"]
+
+[ext_resource type="PackedScene" uid="uid://r73w1563fcbr" path="res://Models/Hellsing Arms Casull/hellsing_arms_casull.glb" id="1_qxoau"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_qxoau")]

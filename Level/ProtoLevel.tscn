@@ -103,17 +103,24 @@ size = Vector3(45.1463, 11.1274, 10.8758)
 material = SubResource("StandardMaterial3D_hr6au")
 
 [node name="Floor9" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20717, 2.33262, -24.6341)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0981, 5.16822, -18.0686)
 gi_mode = 2
 use_collision = true
-size = Vector3(20.4724, 0.328796, 8.86906)
+size = Vector3(34.917, 6, 6)
+material = SubResource("StandardMaterial3D_hr6au")
+
+[node name="Floor11" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9763, 3.37257, -18.0686)
+gi_mode = 2
+use_collision = true
+size = Vector3(31.1606, 9.59131, 6)
 material = SubResource("StandardMaterial3D_hr6au")
 
 [node name="Floor10" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0662, 2.05529, -24.6341)
+transform = Transform3D(0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0, 1, -12.4716, 0.435924, -23.3916)
 gi_mode = 2
 use_collision = true
-size = Vector3(16.3604, 0.328796, 8.86906)
+size = Vector3(33.1445, 5.70801, 5.04149)
 material = SubResource("StandardMaterial3D_hr6au")
 
 [node name="Floor8" type="CSGBox3D" parent="."]
